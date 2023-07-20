@@ -33,7 +33,7 @@ public class ProductRepository {
     // 객체의 영속성 관리와 DB 트랜잭션 관리도 한다.
 
     @Transactional
-    // @Transactional : 트랜잭션
+    // @Transactional : 트랜잭션, INSERT, DELETE, UPDATE시 무조건 해야한다.
     public void save(String name, int price, int qty){
         Query query = em.createNativeQuery("insert into product_tb(name, price, qty) values(:name, :price, :qty)");
         // JPA를 통해 네이티브SQL쿼리를 사용하는 것
